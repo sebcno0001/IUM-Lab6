@@ -1,0 +1,36 @@
+services:
+  train:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ium-lab5:train
+    command: ["python", "src/pipeline.py"]
+    env_file:
+      - .env.train
+    mem_limit: 512m
+    cpus: 1.0
+    expose:
+      - "5000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/status.json')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    # Dane, model i wyniki pozostają na hoście po usunięciu kontenera.
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./results:/app/results
+
+  visualize:
+    build:
+      context: ./visualize
+      dockerfile: Dockerfile
+    image: ium-lab5:visualize
+    depends_on:
+      train:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./results:/results:ro
