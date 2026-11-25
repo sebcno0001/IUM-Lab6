@@ -29,6 +29,10 @@ Cache przechowuje pobrane pakiety Pythona i przyspiesza kolejne uruchomienia. Wy
 | `MODEL_TYPE` | konfiguracja | Wybiera jawny rodzaj algorytmu. |
 | `MODEL_MAX_ITER` | konfiguracja | Określa liczbę iteracji uczenia. |
 
+## Zadanie 4 - weryfikacja i fail fast
+
+Testy są wykonywane przed treningiem. Jeśli `pytest` wykryje błąd, job zatrzymuje się na kroku `Testy`, dlatego kosztowniejszy trening i zapis artefaktu nie są uruchamiane.
+
 ## Uruchomienie lokalne
 
 ```bash
