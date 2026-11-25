@@ -1,5 +1,7 @@
 # Laboratorium 6 - podstawy CI
 
+[![CI](https://github.com/sebcno0001/IUM-Lab6/actions/workflows/ci.yml/badge.svg)](https://github.com/sebcno0001/IUM-Lab6/actions/workflows/ci.yml)
+
 Pipeline ciągłej integracji dla projektu klasyfikacji zbioru Wine.
 
 ## Zadanie 1 - workflow i wyzwalacze
@@ -32,6 +34,10 @@ Cache przechowuje pobrane pakiety Pythona i przyspiesza kolejne uruchomienia. Wy
 ## Zadanie 4 - weryfikacja i fail fast
 
 Testy są wykonywane przed treningiem. Jeśli `pytest` wykryje błąd, job zatrzymuje się na kroku `Testy`, dlatego kosztowniejszy trening i zapis artefaktu nie są uruchamiane.
+
+## Zadanie 5 - odznaka statusu
+
+Odznaka w nagłówku README pokazuje wynik ostatniego przebiegu CI. Osoba otwierająca repozytorium od razu widzi, czy aktualna wersja projektu przechodzi testy i trening.
 
 ## Uruchomienie lokalne
 
