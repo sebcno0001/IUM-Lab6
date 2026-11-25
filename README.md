@@ -10,6 +10,10 @@ Workflow uruchamia się po pushu do gałęzi `main` oraz dla pull requestów. Jo
 pytest
 ```
 
+## Zadanie 2 - cache i artefakt
+
+Cache przechowuje pobrane pakiety Pythona i przyspiesza kolejne uruchomienia. Wytrenowany plik `model.pkl` jest zapisywany jako artefakt, ponieważ stanowi wynik konkretnego przebiegu workflow.
+
 ## Uruchomienie lokalne
 
 ```bash

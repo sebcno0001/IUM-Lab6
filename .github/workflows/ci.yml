@@ -15,8 +15,34 @@ jobs:
       - name: Pobranie kodu
         uses: actions/checkout@v4
 
+      - name: Cache zależności
+        uses: actions/cache@v4
+        with:
+          path: /root/.cache/pip
+          key: pip-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            pip-${{ runner.os }}-
+
       - name: Instalacja zależności
         run: python -m pip install -r requirements.txt
 
       - name: Testy
         run: pytest
+
+      - name: Trening modelu
+        run: python src/train.py
+        env:
+          DATA_PATH: data/wine.csv
+          TARGET_COLUMN: target
+          TEST_SIZE: "0.2"
+          RANDOM_SEED: "42"
+          MODEL_PATH: model.pkl
+          MODEL_TYPE: logistic_regression
+          MODEL_MAX_ITER: "1000"
+
+      - name: Zapis modelu jako artefaktu
+        uses: actions/upload-artifact@v4
+        with:
+          name: model
+          path: model.pkl
+          if-no-files-found: error

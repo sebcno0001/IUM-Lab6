@@ -12,3 +12,4 @@ results/*
 !results/.gitkeep
 screenshots/
 tmp/
+model.pkl
