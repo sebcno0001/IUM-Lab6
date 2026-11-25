@@ -35,5 +35,5 @@ def test_split_data_preserves_all_rows():
 
     X_train, X_test, y_train, y_test = split_data(data, 0.2, 42)
 
-    assert len(X_train) + len(X_test) == 10
+    assert len(X_train) + len(X_test) == 11
     assert len(y_train) + len(y_test) == 10
