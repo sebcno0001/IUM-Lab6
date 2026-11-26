@@ -28,6 +28,7 @@ Cache przechowuje pobrane pakiety Pythona i przyspiesza kolejne uruchomienia. Wy
 | `TEST_SIZE` | konfiguracja | Jest jawnym parametrem podziału danych. |
 | `RANDOM_SEED` | konfiguracja | Zapewnia powtarzalność wyniku. |
 | `MODEL_PATH` | konfiguracja | Wskazuje miejsce zapisu modelu. |
+| `RESULTS_PATH` | konfiguracja | Wskazuje miejsce zapisu wyników oceny. |
 | `MODEL_TYPE` | konfiguracja | Wybiera jawny rodzaj algorytmu. |
 | `MODEL_MAX_ITER` | konfiguracja | Określa liczbę iteracji uczenia. |
 
